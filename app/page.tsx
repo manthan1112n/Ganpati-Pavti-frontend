@@ -3,9 +3,15 @@
 import { useState } from 'react';
 import DonationForm from '@/components/DonationForm';
 import Receipt from '@/components/Receipt';
-import { DonationData } from '@/types';
 import Image from 'next/image';
 import ganeshImage from '@/assets/ganesh.jpg';
+
+// Define the DonationData type according to your form fields
+type DonationData = {
+  name: string;
+  amount: number;
+  // Add other fields as needed
+};
 
 export default function Home() {
   const [donationData, setDonationData] = useState<DonationData | null>(null);
