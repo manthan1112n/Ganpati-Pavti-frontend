@@ -1,8 +1,16 @@
 'use client';
-
+// import { DonationData } from '@/types/index';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { DonationData } from '@/types';
+// Define DonationData type locally since '@/types/index' cannot be found
+type DonationData = {
+  name: string;
+  mobile: string;
+  amount: number;
+  transactionId: string;
+  timestamp: Date;
+};
 import { Download, ArrowLeft } from 'lucide-react';
 
 type ReceiptProps = {
@@ -11,7 +19,7 @@ type ReceiptProps = {
 };
 
 export default function Receipt({ donationData, onBackToForm }: ReceiptProps) {
-  const formatDate = (date) => {
+  const formatDate = (date: Date) => {
     return date.toLocaleString('mr-IN', {
       year: 'numeric',
       month: 'long',
